@@ -953,7 +953,7 @@
   @keyframes busyPulse{ 0%,100%{opacity:1;} 50%{opacity:0.55;} }
   /* 아직 로딩 중인 데이터 알림 배너 (ERP 시작 후 상단 고정) */
   #loading-banner{
-    position:fixed; top:0; left:0; right:0; z-index:99998;
+    position:fixed; top:0; left:0; right:0; z-index:99998; pointer-events:none; /* 상태 표시만 — 아래 메뉴·ON/OFF 버튼 클릭을 막지 않게 */
     display:flex; align-items:center; justify-content:center; gap:10px;
     background:linear-gradient(90deg,#2f6fed,#4d8bff); color:#fff;
     font-size:13.5px; font-weight:600; padding:9px 16px;
@@ -1153,6 +1153,51 @@
   html.theme-new #view-main #main-calendarBtn{ margin-left:auto !important; }
   html.theme-new #view-main .status-toggle-btn{ background:#FFFFFF !important; color:#344054 !important; border:1px solid #98A2B3 !important; border-radius:8px !important; font-weight:700 !important; }
   html.theme-new #view-main .main-hide-clear-btn, html.theme-new #view-main .btn-plain, html.theme-new #view-main .tb-print-btn, html.theme-new #view-main .tb-download-btn{ border-radius:8px !important; }
+  /* ================= [새 레이아웃] html.qx-lay (= ON에서 레이아웃 적용 완료) 일 때만 ================= */
+  html.qx-lay .qnav-cur-page{ display:none !important; }
+  html.qx-lay .qx-gs{ margin-left:auto; align-self:center; display:inline-flex; align-items:center; gap:8px; height:36px; min-width:260px; padding:0 14px; border:1px solid #D0D5DD; border-radius:8px; background:#F5F7FA; color:#667085; font:inherit; font-size:13px; font-weight:600; cursor:pointer; white-space:nowrap; }
+  html.qx-lay .qx-gs:hover{ border-color:#98A2B3; background:#fff; color:#344054; }
+  html.qx-lay .qx-scan{ align-self:center; margin-left:6px; width:36px; height:36px; display:inline-flex; align-items:center; justify-content:center; border:1px solid #D0D5DD; border-radius:8px; background:#fff; color:#0E7090; cursor:pointer; flex:none; }
+  html.qx-lay .qx-scan:hover{ background:#F2F4F7; }
+  html.qx-lay .topbar > .gs-inline-btn{ display:none !important; }
+  /* 상단바(검사일보 제외) → 제목줄 + 필터 카드. 표시/숨김(style.display)은 기존 코드 그대로 */
+  html.qx-lay .topbar.qx-tb{ position:static !important; background:transparent !important; border:0 !important; box-shadow:none !important; padding:18px 24px 0 !important; gap:14px !important; color:#101828; }
+  html.qx-lay .topbar.qx-tb > h1{ display:none !important; }
+  html.qx-lay .qx-head{ flex:1 1 100%; min-width:0; }
+  html.qx-lay .qx-crumb{ font-size:12.5px; color:#667085; font-weight:600; margin-bottom:4px; }
+  html.qx-lay .qx-crumb span{ color:#98A2B3; margin:0 2px; }
+  html.qx-lay .qx-hrow{ display:flex; align-items:flex-end; gap:12px; flex-wrap:wrap; }
+  html.qx-lay .qx-htxt{ flex:1 1 auto; min-width:200px; }
+  html.qx-lay .qx-title{ font-size:26px; font-weight:800; color:#101828; letter-spacing:-.4px; line-height:1.25; }
+  html.qx-lay .qx-desc{ font-size:13px; color:#475467; margin-top:3px; }
+  html.qx-lay .qx-actions{ display:flex; align-items:center; gap:8px; flex-wrap:wrap; justify-content:flex-end; margin-left:auto; }
+  html.qx-lay .qx-actions:empty{ display:none; }
+  html.qx-lay .qx-actions .topbar-right{ margin-left:0 !important; }
+  html.qx-lay .qx-actions > div, html.qx-lay .qx-actions > span{ display:flex; gap:8px; flex-wrap:wrap; align-items:center; margin-left:0 !important; }
+  html.qx-lay .qx-actions button:not([class*="qb2"]):not(.qm-dd-item){ background:#FFFFFF !important; color:#344054 !important; border:1px solid #D0D5DD !important; border-radius:8px !important; padding:8px 14px !important; font-weight:700 !important; font-size:13px !important; box-shadow:0 1px 2px rgba(16,24,40,.05) !important; min-height:38px; }
+  html.qx-lay .qx-actions button:not([class*="qb2"]):not(.qm-dd-item):hover{ background:#F2F4F7 !important; }
+  html.qx-lay .qx-filter{ flex:1 1 100%; min-width:0; display:flex; flex-wrap:wrap; align-items:center; gap:10px; background:#FFFFFF; border:1px solid #E4E7EC; border-radius:12px; padding:14px 18px; box-shadow:0 1px 2px rgba(16,24,40,.05); box-sizing:border-box; }
+  html.qx-lay .qx-filter:not(:has(input, select, button, a, textarea, table, canvas)){ display:none !important; }   /* 비어 있으면 숨김 — MAIN 검색창이 위 칸으로 옮겨지면 자동 표시 */
+  html.qx-lay .qx-actions .quick-links{ margin:0 !important; width:auto !important; }
+  html.qx-lay .qx-actions .sync-toggle{ font-size:12.5px; }
+  html.qx-lay .qx-filter .search-box{ flex:1 1 auto; }
+  html.qx-lay .qx-filter-card{ margin-bottom:16px; }
+  html.qx-lay .qx-filter-card .qlist-row2{ width:100%; }
+  html.qx-lay .qx-hide{ display:none !important; }
+  html.qx-lay .view.qx-v > .qx-head{ margin-bottom:14px; }
+  html.qx-lay .view{ padding:16px 24px 32px; }
+  /* 내용 카드: 흰 배경 + 옅은 테두리 + 둥근 모서리 12 */
+  html.qx-lay .view > div[style*="background:#fff"], html.qx-lay .view > div[style*="background: #fff"], html.qx-lay .view > div[style*="background:#FFF"]{ border:1px solid #E4E7EC !important; border-radius:12px !important; box-shadow:0 1px 2px rgba(16,24,40,.05) !important; }
+  @media (max-width:860px){
+    html.qx-lay .qx-gs{ min-width:0; margin-left:4px; }
+    html.qx-lay .qx-gs span{ display:none; }
+    html.qx-lay .topbar.qx-tb{ padding:12px 12px 0 !important; }
+    html.qx-lay .view{ padding:10px 12px 24px; }
+    html.qx-lay .qx-title{ font-size:20px; }
+    html.qx-lay .qx-actions{ width:100%; justify-content:flex-start; margin-left:0; }
+    html.qx-lay .qx-filter{ padding:10px 12px; }
+  }
+  @media print{ html.qx-lay .qx-head, html.qx-lay .qx-gs, html.qx-lay .qx-scan{ display:none !important; } }
 </style>
 </head>
 <body>
@@ -3246,10 +3291,24 @@ document.addEventListener("click", function(){
   try{ new MutationObserver(function(){ markCur(); }).observe(nav,{subtree:true,attributes:true,attributeFilter:["class"]}); }catch(_){}
   nav.querySelectorAll(".qnav-solo").forEach(function(x){ x.addEventListener("click", function(){ closeAll(); setTimeout(markCur,0); }); });
   var cp=document.createElement("div"); cp.id="qnav-curPage"; cp.className="qnav-cur-page"; nav.appendChild(cp);
-  // [새 디자인] 켜기/끄기 스위치 — 누르면 바로 전환(입력 내용 유지), 기기별 기억
+  // [새 디자인] 켜기/끄기 스위치 — 누르면 새로고침으로 전환(레이아웃까지 바뀜), 기기별 기억
   var tb=document.createElement("button"); tb.type="button"; tb.id="qms-theme-btn"; tb.className="qms-theme-btn";
   var paint=function(){ var on=document.documentElement.classList.contains("theme-new"); tb.textContent=on?"ON":"OFF"; tb.title=on?"새 디자인 사용 중 — 누르면 기존 디자인으로":"기존 디자인 — 누르면 새 디자인으로 (기능은 같음)"; tb.setAttribute("aria-label", on?"새 디자인 끄기":"새 디자인 켜기"); tb.classList.toggle("on",on); };
-  tb.addEventListener("click", function(){ var on=!document.documentElement.classList.contains("theme-new"); document.documentElement.classList.toggle("theme-new",on); if(!window.__qmsThemeTemp){ try{ localStorage.setItem("qmsTheme", on?"new":"old"); }catch(_){} } paint(); });
+  tb.addEventListener("click", function(){ var on=!document.documentElement.classList.contains("theme-new");
+    // [새 레이아웃] 색·디자인뿐 아니라 화면 배치도 바뀌므로 새로고침으로 전환 (검사일보는 기기에 자동 저장됨)
+    // 브라우저 확인창(confirm)은 "대화상자 차단"을 한 PC에서 바로 취소되므로 화면 안 확인창 사용
+    var go=function(){ if(window.__qmsThemeTemp){ try{ var u=new URL(location.href); u.searchParams.set("theme", on?"new":"old"); location.href=u.toString(); return; }catch(_){} }
+      try{ localStorage.setItem("qmsTheme", on?"new":"old"); }catch(_){}
+      location.reload(); };
+    var old=document.getElementById("qms-theme-ov"); if(old) old.remove();
+    var ov=document.createElement("div"); ov.id="qms-theme-ov"; ov.style.cssText="position:fixed;inset:0;z-index:100100;background:rgba(16,24,40,.45);display:flex;align-items:center;justify-content:center;";
+    ov.innerHTML='<div style="background:#fff;border-radius:12px;padding:22px 24px;max-width:380px;width:90%;box-sizing:border-box;box-shadow:0 12px 40px rgba(0,0,0,.3);color:#101828;font-size:14px;line-height:1.6;">'+
+      '<div style="font-size:16px;font-weight:800;margin-bottom:8px;">'+(on?"새 디자인(ON)":"기존 디자인(OFF)")+'으로 바꿀까요?</div>'+
+      '<div style="color:#475467;">화면이 새로고침됩니다. 입력 중인 내용이 있으면 먼저 저장해 주세요.<br>(검사일보는 기기에 자동 저장됩니다)</div>'+
+      '<div style="display:flex;gap:8px;justify-content:flex-end;margin-top:16px;"><button type="button" data-x="no" style="padding:8px 16px;border:1px solid #D0D5DD;border-radius:8px;background:#fff;color:#344054;font-weight:700;cursor:pointer;">취소</button>'+
+      '<button type="button" data-x="yes" style="padding:8px 16px;border:1px solid #2563EB;border-radius:8px;background:#2563EB;color:#fff;font-weight:700;cursor:pointer;">바꾸기</button></div></div>';
+    ov.addEventListener("click", function(e){ var x=e.target.getAttribute && e.target.getAttribute("data-x"); if(e.target===ov || x==="no"){ ov.remove(); } else if(x==="yes"){ ov.remove(); go(); } });
+    document.body.appendChild(ov); });
   paint(); nav.appendChild(tb);
   markCur();
 })();
@@ -3346,6 +3405,81 @@ function qmsTidyButtons_(){
 }
 document.addEventListener("click", function(e){ if(!(e.target.closest && e.target.closest(".qm-dd"))) document.querySelectorAll(".qm-dd.open").forEach(function(x){ x.classList.remove("open"); }); });
 if(document.readyState==="loading") document.addEventListener("DOMContentLoaded", qmsTidyButtons_); else qmsTidyButtons_();
+/* ===== [새 레이아웃] ON(theme-new)일 때만 — 표준 화면 틀: 제목줄 → 필터 카드 → 요약 숫자 → 내용 카드 =====
+   · 기존 요소를 새로 만들지 않고 "옮기기"만 함 → id·onclick·이벤트·입력값 그대로 (기능 동일)
+   · OFF면 이 코드는 아무것도 하지 않음 → 기존 화면과 100% 같음
+   · 전환은 새로고침으로 (스위치 누르면 reload) → 옮긴 요소가 섞인 채 남지 않음
+   · 검사일보(insrep)는 핵심 입력 화면이라 도구줄 구조·고정(sticky)은 그대로 두고 색·글꼴만 적용 */
+function qxLayout_(){
+  var H=document.documentElement; if(!H.classList.contains("theme-new") || H.classList.contains("qx-lay")) return;
+  try{
+    var EMO=/[\u{1F000}-\u{1FAFF}\u2190-\u21FF\u2300-\u23FF\u2600-\u27BF\u2B00-\u2BFF\uFE0F\u200D]/gu;
+    var clean=function(t){ return String(t||"").replace(EMO,"").replace(/[▾▸◀▶]/g,"").replace(/\s+/g," ").trim(); };
+    var esc=function(t){ return String(t).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); };
+    var ACT=/(새로고침|인쇄|엑셀|다운로드|발표 모드|전체화면|내보내기)/;   // "라벨 인쇄"도 포함
+    var info=function(v){ var it=document.querySelector('.nav-item[data-view="'+v+'"]'); if(!it) return null;
+      var b=it.querySelector(".qnav-t b"), sm=it.querySelector(".qnav-t small"), cat=it.closest(".qnav-cat"), cb=cat&&cat.querySelector(":scope > .qnav-btn");
+      return { name: b?clean(b.textContent):clean(it.textContent), desc: sm?clean(sm.textContent):"", cat: cb?clean(cb.textContent):"" }; };
+    var mkHead=function(inf, title, desc){ var d=document.createElement("div"); d.className="qx-head";
+      d.innerHTML='<div class="qx-crumb">'+(inf&&inf.cat?esc(inf.cat)+' <span>›</span> ':'')+esc(title)+'</div>'+
+        '<div class="qx-hrow"><div class="qx-htxt"><div class="qx-title">'+esc(title)+'</div>'+(desc?'<div class="qx-desc">'+esc(desc)+'</div>':'')+'</div><div class="qx-actions"></div></div>';
+      return d; };
+    var isActGroup=function(el){ if(!el || el.nodeType!==1) return false;
+      if(el.tagName==="BUTTON") return !el.classList.contains("gs-inline-btn") && ACT.test(el.textContent||"");
+      return false; };
+    var views=[].slice.call(document.querySelectorAll(".main-area > .view[id^='view-']"));
+    views.forEach(function(view){
+      var v=view.id.slice(5); if(v==="insrep") return;
+      var inf=info(v) || (v==="history"?info("management"):null);
+      var tb=document.getElementById("topbar-"+v);
+      if(tb){
+        var h1=tb.querySelector(":scope > h1");
+        var title=(v==="history"&&h1)?clean(h1.textContent):((inf&&inf.name)||clean(h1?h1.textContent:v));
+        var head=mkHead(inf, title, inf?inf.desc:""), acts=head.querySelector(".qx-actions");
+        var fil=document.createElement("div"); fil.className="qx-filter";
+        [].slice.call(tb.childNodes).forEach(function(n){ if(n===h1 || (n.nodeType===1 && n.classList.contains("gs-inline-btn"))) return; fil.appendChild(n); });
+        tb.insertBefore(head, tb.firstChild); tb.appendChild(fil);
+        [].slice.call(fil.children).forEach(function(c){
+          if(c.classList.contains("topbar-right") || c.classList.contains("quick-links") || c.classList.contains("sync-toggle") || isActGroup(c)) acts.appendChild(c);
+        });
+        tb.classList.add("qx-tb");
+      } else {
+        var t=view.querySelector(":scope > h1");
+        if(!t){ var cands=view.querySelectorAll(":scope > div div"); for(var i=0;i<cands.length && i<12;i++){ var st=cands[i].getAttribute("style")||""; if(/font-size:\s*(18|20)px/.test(st) && /font-weight:\s*800/.test(st)){ t=cands[i]; break; } } }
+        var desc=inf?inf.desc:"";
+        if(t){ var sp=t.querySelector("span"); if(sp){ var dt=clean(sp.textContent).replace(/^·\s*/,""); if(dt) desc=dt; }
+          if(t.tagName==="H1"){ var nx=t.nextElementSibling; if(nx && nx.tagName==="DIV" && !nx.querySelector("input,select,button,table") && (nx.textContent||"").length<220){ desc=clean(nx.textContent); nx.classList.add("qx-hide"); } } }
+        var title2=(inf&&inf.name)||(t?clean(t.childNodes[0]?t.childNodes[0].textContent:t.textContent):v);
+        var head2=mkHead(inf, title2, desc), acts2=head2.querySelector(".qx-actions");
+        if(t){ var row=t.parentNode;
+          if(row && row!==view){ [].slice.call(row.children).forEach(function(c){
+            if(c===t) return;
+            if(isActGroup(c)) acts2.appendChild(c);
+            else if(c.tagName==="DIV" && /margin-left:\s*auto/.test(c.getAttribute("style")||"") && c.querySelector("button") && !c.querySelector("input,select")) acts2.appendChild(c);
+          }); }
+          t.classList.add("qx-hide"); }
+        view.insertBefore(head2, view.firstChild);
+        var r2=view.querySelector(".qlist-row2");
+        if(r2){ var fc=document.createElement("div"); fc.className="qx-filter qx-filter-card"; head2.parentNode.insertBefore(fc, head2.nextSibling); fc.appendChild(r2); }
+        view.classList.add("qx-v");
+      }
+    });
+    // 통합검색 → 상단 메뉴줄 오른쪽 하나로 (화면마다 있던 버튼은 숨김, 기능 동일: gsOpen/scanOpen)
+    var nav=document.getElementById("sideNav");
+    if(nav && !document.getElementById("qx-gs")){
+      var g=document.createElement("button"); g.type="button"; g.id="qx-gs"; g.className="qx-gs"; g.title="도번 하나로 전체 메뉴를 한 번에 조회합니다";
+      g.innerHTML='<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg><span>통합검색 (도번 · ORDER NO)</span>';
+      g.onclick=function(){ if(typeof gsOpen==="function") gsOpen(); };
+      var sc=document.createElement("button"); sc.type="button"; sc.id="qx-scan"; sc.className="qx-scan"; sc.title="QR/바코드를 카메라로 스캔해 통합검색합니다";
+      sc.innerHTML='<svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8V6a2 2 0 0 1 2-2h2M16 4h2a2 2 0 0 1 2 2v2M20 16v2a2 2 0 0 1-2 2h-2M8 20H6a2 2 0 0 1-2-2v-2M7 12h10"/></svg>';
+      sc.onclick=function(){ if(typeof scanOpen==="function") scanOpen(); };
+      var tbtn=document.getElementById("qms-theme-btn");
+      nav.insertBefore(g, tbtn||null); nav.insertBefore(sc, tbtn||null);
+    }
+    H.classList.add("qx-lay");
+  }catch(e){ try{ console.error("[qxLayout]", e); }catch(_){} }
+}
+if(document.readyState==="loading") document.addEventListener("DOMContentLoaded", qxLayout_); else qxLayout_();
 // 화면을 열 때 도구줄이 새로 그려지는 경우도 있어 메뉴 이동 후 한 번 더 정리
 document.addEventListener("click", function(e){ if(e.target.closest && e.target.closest(".nav-item[data-view]")) setTimeout(qmsTidyButtons_, 350); });
 
