@@ -1198,6 +1198,87 @@
     html.qx-lay .qx-filter{ padding:10px 12px; }
   }
   @media print{ html.qx-lay .qx-head, html.qx-lay .qx-gs, html.qx-lay .qx-scan{ display:none !important; } }
+  /* ================= 📊 품질 대시보드 (#view-qdash) — ON/OFF 관계없이 항상 새 디자인 ================= */
+  #view-qdash{ background:#F5F7FA; font-family:"맑은 고딕","Malgun Gothic","Apple SD Gothic Neo",sans-serif !important; color:#101828; }
+  #view-qdash *{ box-sizing:border-box; font-family:inherit !important; }
+  #view-qdash .qd-head{ display:flex; align-items:flex-end; gap:12px; flex-wrap:wrap; margin:2px 0 16px; }
+  #view-qdash .qd-crumb{ font-size:12.5px; color:#667085; font-weight:600; margin-bottom:4px; }
+  #view-qdash .qd-crumb span{ color:#98A2B3; }
+  #view-qdash .qd-title{ font-size:26px; font-weight:800; letter-spacing:-.4px; line-height:1.25; color:#101828; }
+  #view-qdash .qd-sub{ font-size:13px; color:#475467; margin-top:3px; }
+  #view-qdash .qd-hact{ margin-left:auto; display:flex; gap:8px; }
+  #view-qdash .qd-btn{ display:inline-flex; align-items:center; gap:6px; height:36px; padding:0 14px; border:1px solid #D0D5DD; border-radius:8px; background:#fff; color:#344054; font-size:13px; font-weight:700; cursor:pointer; box-shadow:0 1px 2px rgba(16,24,40,.05); white-space:nowrap; transform:none; opacity:1; }
+  #view-qdash .qd-btn:hover{ background:#F2F4F7; }
+  #view-qdash .qd-kpis{ display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:14px; margin-bottom:16px; }
+  #view-qdash .qd-kpi{ position:relative; display:flex; align-items:center; gap:14px; text-align:left; background:#fff; border:1px solid #E4E7EC; border-radius:12px; padding:16px 16px 20px; cursor:pointer; box-shadow:0 1px 2px rgba(16,24,40,.05); overflow:hidden; color:#101828; font-size:13px; }
+  #view-qdash .qd-kpi:hover{ border-color:var(--c); }
+  #view-qdash .qd-kpi.on{ border:2px solid var(--c); background:var(--bg); }
+  #view-qdash .qd-kic{ flex:none; width:50px; height:50px; border-radius:50%; background:var(--bg); color:var(--c); display:flex; align-items:center; justify-content:center; }
+  #view-qdash .qd-kt{ display:flex; flex-direction:column; min-width:0; }
+  #view-qdash .qd-kl{ font-size:14px; font-weight:800; color:#344054; }
+  #view-qdash .qd-kn{ font-size:28px; font-weight:800; color:#101828; line-height:1.2; display:flex; align-items:baseline; gap:4px; flex-wrap:wrap; }
+  #view-qdash .qd-kn small{ font-size:14px; font-weight:700; color:#475467; }
+  #view-qdash .qd-dl{ font-size:12px; font-weight:800; color:#667085; margin-left:6px; }
+  #view-qdash .qd-dl.up{ color:#DC2626; } #view-qdash .qd-dl.dn{ color:#2563EB; }
+  #view-qdash .qd-ks{ font-size:11.5px; color:#667085; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  #view-qdash .qd-kbar{ position:absolute; left:16px; right:16px; bottom:9px; height:4px; background:#F2F4F7; border-radius:4px; overflow:hidden; }
+  #view-qdash .qd-kbar i{ display:block; height:100%; background:var(--c); border-radius:4px; }
+  #view-qdash .qd-grid{ display:grid; grid-template-columns:minmax(0,1.75fr) minmax(0,1.15fr) minmax(0,1.1fr); gap:16px; align-items:start; }
+  #view-qdash .qd-c-table{ grid-column:1 / span 2; }
+  #view-qdash .qd-c-side{ display:flex; flex-direction:column; gap:16px; min-width:0; }
+  #view-qdash .qd-card{ background:#fff; border:1px solid #E4E7EC; border-radius:12px; padding:16px 18px; box-shadow:0 1px 2px rgba(16,24,40,.05); min-width:0; }
+  #view-qdash .qd-c-line, #view-qdash .qd-c-donut, #view-qdash .qd-c-alert{ min-height:320px; }
+  #view-qdash .qd-ch{ display:flex; align-items:center; gap:8px; flex-wrap:wrap; margin-bottom:12px !important; font-size:13px !important; font-weight:400 !important; }
+  #view-qdash .qd-ch h3{ margin:0; font-size:16px; font-weight:800; color:#101828 !important; display:flex; align-items:center; gap:8px; }
+  #view-qdash .qd-chs{ font-size:12px; color:#667085; margin-left:auto; }
+  #view-qdash .qd-cnt{ font-size:12px; font-weight:800; color:#1D4ED8; background:#EFF4FF; border-radius:10px; padding:2px 9px; }
+  #view-qdash .qd-ch-tool{ gap:10px; }
+  #view-qdash .qd-tool{ margin-left:auto; display:flex; gap:8px; align-items:center; flex-wrap:wrap; }
+  #view-qdash .qd-tool select{ height:36px; padding:0 10px; border:1px solid #98A2B3; border-radius:8px; background:#fff; font-size:13px; font-weight:700; color:#101828; }
+  #view-qdash .qd-search{ display:inline-flex; align-items:center; gap:6px; height:36px; padding:0 10px; border:1px solid #98A2B3; border-radius:8px; background:#fff; color:#667085; }
+  #view-qdash .qd-search input{ border:0 !important; outline:0; width:210px; font-size:13px; color:#101828; background:transparent; padding:0 !important; }
+  #view-qdash .qd-more{ margin-left:auto; border:0; background:none; color:#1D4ED8; font-size:12.5px; font-weight:700; cursor:pointer; padding:2px 4px; }
+  #view-qdash .qd-legend{ display:flex; gap:14px; flex-wrap:wrap; justify-content:flex-end; font-size:12px; color:#475467; margin:-4px 0 4px; }
+  #view-qdash .qd-lg{ display:inline-flex; align-items:center; gap:5px; } #view-qdash .qd-lg i{ width:10px; height:10px; border-radius:50%; display:inline-block; }
+  #view-qdash .qd-lg b{ color:#101828; }
+  #view-qdash .qd-svg{ width:100%; height:auto; display:block; }
+  #view-qdash .qd-note{ font-size:11.5px; color:#667085; margin-top:6px; }
+  #view-qdash .qd-empty{ padding:28px 10px; text-align:center; color:#667085; font-size:13px; }
+  #view-qdash .qd-donut{ display:flex; align-items:center; gap:14px; flex-wrap:wrap; justify-content:center; padding-top:6px; }
+  #view-qdash .qd-dt{ border-collapse:collapse; font-size:13px; flex:1; min-width:190px; }
+  #view-qdash .qd-dt th, #view-qdash .qd-dt td{ border:0 !important; border-bottom:1px solid #EAECF0 !important; background:transparent !important; padding:7px 4px !important; font-size:13px !important; text-align:right !important; color:#101828 !important; font-weight:700 !important; }
+  #view-qdash .qd-dt th{ color:#667085 !important; font-size:11.5px !important; }
+  #view-qdash .qd-dt th:first-child, #view-qdash .qd-dt td:first-child{ text-align:left !important; }
+  #view-qdash .qd-dt td.p{ color:#667085 !important; } #view-qdash .qd-dt td.b span{ color:#DC2626; }
+  #view-qdash .qd-dt tfoot td{ border-bottom:0 !important; border-top:2px solid #D0D5DD !important; }
+  #view-qdash .qd-dot{ display:inline-block; width:10px; height:10px; border-radius:50%; margin-right:7px; vertical-align:0; }
+  #view-qdash .qd-alist{ display:flex; flex-direction:column; }
+  #view-qdash .qd-al{ display:flex; align-items:center; gap:10px; width:100%; text-align:left; background:none; border:0; border-bottom:1px solid #EAECF0; padding:10px 2px; cursor:pointer; font-size:13px; color:#101828; transform:none; opacity:1; }
+  #view-qdash .qd-al:last-child{ border-bottom:0; } #view-qdash .qd-al:hover{ background:#F9FAFB; }
+  #view-qdash .qd-alc{ flex:none; min-width:52px; text-align:center; border:1px solid; border-radius:8px; padding:3px 7px; font-size:12px; font-weight:800; }
+  #view-qdash .qd-alt{ flex:1; font-weight:700; min-width:0; }
+  #view-qdash .qd-alg{ color:#98A2B3; font-size:18px; }
+  #view-qdash .qd-twrap{ overflow:auto; max-height:520px; border:1px solid #A4ACB9; border-radius:8px; }
+  #view-qdash .qd-tb{ width:100%; border-collapse:collapse; font-size:13px; }
+  #view-qdash .qd-tb th{ position:sticky; top:0; z-index:1; background:#E3E8EF !important; color:#101828 !important; font-weight:800 !important; font-size:13px !important; border:1px solid #A4ACB9 !important; border-bottom:2px solid #667085 !important; padding:9px 8px !important; text-align:center !important; white-space:nowrap; }
+  #view-qdash .qd-tb td{ border:1px solid #C4CBD6 !important; padding:8px !important; text-align:center !important; font-size:13px !important; font-weight:700 !important; color:#111827 !important; background:#fff !important; white-space:nowrap; }
+  #view-qdash .qd-tb tbody tr:nth-child(even) td{ background:#F1F4F8 !important; }
+  #view-qdash .qd-tb tbody tr.late td{ background:#FEF3F2 !important; }
+  #view-qdash .qd-tb td.qd-nm{ max-width:220px; overflow:hidden; text-overflow:ellipsis; }
+  #view-qdash .qd-tb-s td, #view-qdash .qd-tb-s th{ padding:7px 5px !important; font-size:12.5px !important; }
+  #view-qdash .qd-lk{ color:#1D4ED8 !important; cursor:pointer; text-decoration:underline; text-underline-offset:2px; }
+  #view-qdash .qd-bd{ display:inline-block; border:1px solid; border-radius:10px; padding:2px 10px; font-size:12px; font-weight:800; }
+  #view-qdash .qd-bd.ok{ background:#EAF7EE; color:#15803D; border-color:#15803D40; }
+  #view-qdash .qd-bd.bad{ background:#FEF2F2; color:#B42318; border-color:#B4231840; }
+  #view-qdash .qd-bd.warn{ background:#FFF7E6; color:#B45309; border-color:#B4530940; }
+  #view-qdash .qd-dday{ color:#475467; }
+  #view-qdash .qd-quick{ display:grid; grid-template-columns:1fr 1fr; gap:8px; }
+  #view-qdash .qd-qk{ display:flex; align-items:center; gap:10px; text-align:left; background:#fff; border:1px solid #D0D5DD; border-radius:10px; padding:10px 12px; cursor:pointer; color:#1D4ED8; transform:none; opacity:1; }
+  #view-qdash .qd-qk:hover{ background:#EFF4FF; border-color:#84ADFF; }
+  #view-qdash .qd-qk span{ display:flex; flex-direction:column; min-width:0; } #view-qdash .qd-qk b{ color:#101828; font-size:13px; } #view-qdash .qd-qk small{ color:#667085; font-size:11px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  @media (max-width:1400px){ #view-qdash .qd-kpis{ grid-template-columns:repeat(3,minmax(0,1fr)); } }
+  @media (max-width:1200px){ #view-qdash .qd-grid{ grid-template-columns:minmax(0,1fr) minmax(0,1fr); } #view-qdash .qd-c-table{ grid-column:1 / -1; } #view-qdash .qd-c-side{ grid-column:1 / -1; display:grid; grid-template-columns:1fr 1fr; } }
+  @media (max-width:860px){ #view-qdash .qd-kpis{ grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; } #view-qdash .qd-grid, #view-qdash .qd-c-side{ grid-template-columns:minmax(0,1fr); display:grid; } #view-qdash .qd-c-table{ grid-column:auto; } #view-qdash .qd-title{ font-size:20px; } #view-qdash .qd-kn{ font-size:22px; } #view-qdash .qd-search input{ width:130px; } }
 </style>
 </head>
 <body>
@@ -1371,7 +1452,11 @@ var QMS_GS_URL = "https://script.google.com/macros/s/AKfycbyGUt0yGmidzisFSPjwb2X
 <div class="app-shell">
   <div class="side-nav" id="sideNav">
     <div class="brand">NTL QMS Portal<small>Quality Management System</small></div>
-    <div class="nav-item qnav-solo" data-view="main" title="MAIN 대시보드 (주문·납기 종합 현황)"><span class="qnav-ico">🏠</span><span>MAIN</span><span class="qs-r">&nbsp;대시보드</span></div>
+    <div class="qnav-cat" data-cat="main"><button type="button" class="qnav-btn" title="MAIN 대시보드 · 품질 대시보드"><span class="qnav-ico">🏠</span>MAIN<span class="qnav-caret">▾</span></button>
+      <div class="qnav-panel">
+        <div class="nav-item nav-sub" data-view="main" title="MAIN 대시보드 (주문·납기 종합 현황)"><span class="qnav-i">🏠</span><span class="qnav-t"><b>MAIN 대시보드</b><small>주문·납기 종합 현황</small></span></div>
+        <div class="nav-item nav-sub" data-view="qdash" title="품질 대시보드 (이번 주까지 물량의 검사·출하검사·알림)"><span class="qnav-i">📈</span><span class="qnav-t"><b>품질 대시보드</b><small>검사·출하검사·알림 한눈에</small></span></div>
+      </div></div>
     <div class="qnav-cat" data-cat="dash"><button type="button" class="qnav-btn"><span class="qnav-ico">📊</span>현황<span class="qnav-caret">▾</span></button>
       <div class="qnav-panel">
         <div class="nav-item nav-sub active" data-view="summary"><span class="qnav-i">📊</span><span class="qnav-t"><b>월별 현황</b><small>월별 출하·품질 요약</small></span></div>
@@ -1735,6 +1820,8 @@ var QMS_GS_URL = "https://script.google.com/macros/s/AKfycbyGUt0yGmidzisFSPjwb2X
         <button type="button" data-dtab="management" class="active">📅 납기/생산계획</button>
       </div>
     </div>
+    <!-- ===================== 📊 품질 대시보드 VIEW (내용은 qdRender_()가 그림) ===================== -->
+    <div class="view" id="view-qdash"><div id="qd-root"></div></div>
     <div class="view" id="view-management" style="padding:0;">
       <div id="management-print-page" style="padding:16px;">
         
@@ -3429,7 +3516,7 @@ function qxLayout_(){
       return false; };
     var views=[].slice.call(document.querySelectorAll(".main-area > .view[id^='view-']"));
     views.forEach(function(view){
-      var v=view.id.slice(5); if(v==="insrep") return;
+      var v=view.id.slice(5); if(v==="insrep" || v==="qdash") return;   // 검사일보·품질대시보드는 자체 배치
       var inf=info(v) || (v==="history"?info("management"):null);
       var tb=document.getElementById("topbar-"+v);
       if(tb){
@@ -4391,6 +4478,7 @@ document.querySelectorAll(".nav-item").forEach(item=>{
       if(!window.__schedInited){ window.__schedInited = true; schedInit(); }
       schedRender();
     }
+    if(target==="qdash" && typeof qdRender_==="function"){ qdRender_(); }   // 품질 대시보드
     if(target==="insrep"){
       if(!window.__insrepInited){ window.__insrepInited = true; insInit(); }
       else { try{ if(typeof insRollDateToToday_==="function" && insRollDateToToday_()){ insSyncMetaInputs(); insSaveLocal(); } }catch(_){} }   // 켜 둔 채 날이 바뀐 경우
@@ -4624,6 +4712,7 @@ function refreshActiveViewAfterData(){
     else if(id === "view-waitinsp" && typeof renderWaitInspTab === "function"){ renderWaitInspTab(); }
     else if(id === "view-overdue" && typeof overdueApplySearch === "function"){ overdueApplySearch(); }
     else if(id === "view-main" && typeof mainInitialRender === "function" && mainData){ mainInitialRender(mainData); }
+    else if(id === "view-qdash" && typeof qdRender_ === "function"){ qdRender_(); }
   }catch(_){ }
 }
 function computeAllStatuses(data){
@@ -11160,6 +11249,227 @@ function qmsGoto_(it){
     if(it.view){ var nv2=document.querySelector('.nav-item[data-view="'+it.view+'"]'); if(nv2) nv2.click(); return; }
     if(it.qtab){ var q=document.querySelector('.nav-item[data-view="quality"]'); if(q) q.click(); setTimeout(function(){ var tb=document.querySelector('[data-qtab="'+it.qtab+'"]'); if(tb) tb.click(); },220); }
   }catch(e){}
+}
+/* ==================== 📊 품질 대시보드 (MAIN ▸ 품질 대시보드) ====================
+   · 새 화면이라 ON/OFF와 관계없이 항상 새 디자인 (#view-qdash 안에서만 적용되는 CSS)
+   · 새 데이터를 만들지 않고 기존 데이터만 읽음 (읽기 전용):
+       MAIN 주문(mainData) + 제품상태(computeProductStatus) / 크린룸=출하검사 대기(computeWaitClean)
+       검사일보 공유본(qmsLoadUnresolvedShared_ → insUnresolvedSrc, 없으면 이 PC의 insState)
+       오늘 챙길 것 알림(qmsMorningAlerts_) + 출하정지(__holdLog)
+   · 기준 물량: "이번 주 일요일까지 납기" 주문 (지연 포함) — 주간 출하 화면과 같은 제외 규칙(완료·출고·수량0·도번없음)
+   · 전일 대비(▲▼): 공유 칸 "qdashSnap"에 날짜별 첫 숫자를 저장해 두고 비교 (저장 직전 병합, 60일 보관) */
+var __qd = { filter:"all", q:"", snap:null, snapTried:false, retry:0 };
+function qdE_(t){ return (typeof qmsEsc_==="function")?qmsEsc_(t):String(t==null?"":t); }
+function qdYmd_(d){ return (typeof mgmtFmtYMD==="function")?mgmtFmtYMD(d):d.toISOString().slice(0,10); }
+function qdDate_(v){ var s=String(v==null?"":v).trim().replace(/[.\/]/g,"-"); var m=s.match(/^(\d{4})-(\d{1,2})-(\d{1,2})/); return m? (m[1]+"-"+("0"+m[2]).slice(-2)+"-"+("0"+m[3]).slice(-2)) : ""; }
+function qdNum_(v){ var n=Number(String(v==null?"":v).replace(/[^0-9.\-]/g,"")); return isFinite(n)?n:0; }
+function qdWeek_(){ var t=new Date(); t.setHours(0,0,0,0); var dow=(t.getDay()+6)%7; var mon=new Date(t.getFullYear(),t.getMonth(),t.getDate()-dow); var sun=new Date(mon.getFullYear(),mon.getMonth(),mon.getDate()+6); return { today:t, todayStr:qdYmd_(t), mon:mon, sun:sun, sunStr:qdYmd_(sun) }; }
+function qdReady_(){ try{ return typeof mainData!=="undefined" && mainData && mainData.length>0; }catch(_){ return false; } }
+/* 기준 물량 목록 + 분류 */
+function qdScope_(){
+  var W=qdWeek_(), out=[];
+  try{ if(typeof mainStatusMapDirty!=="undefined" && mainStatusMapDirty && typeof computeAllStatuses==="function"){ mainStatusMap=computeAllStatuses(mainData); mainStatusMapDirty=false; } }catch(_){}
+  (mainData||[]).forEach(function(r){
+    var due=String(r.dueDate||"").slice(0,10); if(!due || due>W.sunStr) return;
+    if(!((Number(r.qty)||0)>0) || !String(r.oldDrawingNo||"").trim()) return;
+    var st=computeProductStatus(r); if(st==="완료" || st==="출고" || !st) return;
+    var S=0; try{ S=Number(computeWaitClean(r))||0; }catch(_){}
+    var cat = st==="생산" ? "prod" : (st==="재고" ? "ready" : ((st==="수입"||st==="측정"||st==="비젼"||st==="OK") ? "wait" : (st==="외관" ? "shipst" : "etc")));
+    out.push({ r:r, st:st, cat:cat, ship:S>0, shipQty:S, due:due, late:due<W.todayStr, qty:Number(r.qty)||0 });
+  });
+  out.sort(function(a,b){ return a.due<b.due?-1:(a.due>b.due?1:String(a.r.orderNo||"").localeCompare(String(b.r.orderNo||""))); });
+  return out;
+}
+var QD_KPI=[
+  { k:"prod",  t:"생산중",        c:"#2563EB", bg:"#EFF4FF", ic:'<path d="M3 21V9l6 4V9l6 4V5h6v16z"/>', sub:"제품상태 '생산'", f:function(x){ return x.cat==="prod"; } },
+  { k:"wait",  t:"검사대기",      c:"#D97706", bg:"#FFF7E6", ic:'<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>', sub:"수입·측정·비젼 대기", f:function(x){ return x.cat==="wait"; } },
+  { k:"ship",  t:"출하검사중",    c:"#0E7490", bg:"#E6F6F8", ic:'<circle cx="11" cy="11" r="6"/><path d="M20 20l-4.5-4.5"/>', sub:"크린룸 검사대기", f:function(x){ return x.ship; } },
+  { k:"ready", t:"검사완료·출고대기", c:"#16A34A", bg:"#EAF7EE", ic:'<path d="M5 12l5 5 9-10"/>', sub:"제품상태 '재고'", f:function(x){ return x.cat==="ready"; } },
+  { k:"late",  t:"납기지연",      c:"#DC2626", bg:"#FEF2F2", ic:'<path d="M12 8v5M12 16.5v.5"/><path d="M10.3 3.9L2.4 18a2 2 0 0 0 1.7 3h15.8a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/>', sub:"최종납기 지남", f:function(x){ return x.late; } }
+];
+function qdCounts_(list){ var o={}; QD_KPI.forEach(function(K){ var a=list.filter(K.f); o[K.k]={ n:a.length, q:a.reduce(function(s,x){ return s+(K.k==="ship"?x.shipQty:x.qty); },0) }; }); return o; }
+/* 전일 대비 스냅샷 (공유, 저장 직전 병합, 알림창 없이 조용히) */
+function qdSnapSync_(counts){
+  if(__qd.snapTried) return; __qd.snapTried=true;
+  var W=qdWeek_(), today=W.todayStr, mine={}; Object.keys(counts).forEach(function(k){ mine[k]=counts[k].n; });
+  var dataOk=false; try{ dataOk=!!(__dataArrived && __dataArrived.main && (__dataArrived.inv || invServerLoaded)); }catch(_){}
+  try{ var ls=JSON.parse(localStorage.getItem("qdashSnap")||"null"); if(ls && typeof ls==="object") __qd.snap=ls; }catch(_){}
+  if(typeof qShareLoad_!=="function"){ return; }
+  qShareLoad_("qdashSnap", function(remote){
+    var obj=(remote && typeof remote==="object" && !Array.isArray(remote))?remote:{};
+    if(__qd.snap) Object.keys(__qd.snap).forEach(function(d){ if(!obj[d]) obj[d]=__qd.snap[d]; });   // 병합: 없는 날짜만 흡수
+    var changed=false;
+    if(dataOk && !obj[today]){ obj[today]=mine; changed=true; }
+    var ds=Object.keys(obj).sort(); while(ds.length>60){ delete obj[ds.shift()]; changed=true; }
+    __qd.snap=obj; try{ localStorage.setItem("qdashSnap", JSON.stringify(obj)); }catch(_){}
+    if(changed){ try{ var url=(typeof qShareUrl_==="function")?qShareUrl_():""; if(url && typeof qSharePost_==="function") qSharePost_(url, "qdashSnap", JSON.stringify(obj)); }catch(_){} }
+    if(!dataOk) __qd.snapTried=false;   // 데이터가 다 온 뒤 다시 시도
+    qdRenderKpi_();
+  });
+}
+function qdPrevSnap_(){ var o=__qd.snap; if(!o) return null; var today=qdWeek_().todayStr; var ds=Object.keys(o).filter(function(d){ return d<today; }).sort(); return ds.length?{ d:ds[ds.length-1], v:o[ds[ds.length-1]] }:null; }
+/* 검사일보 행 (공유본 우선) */
+function qdInsRows_(){
+  var src=null; try{ if(typeof insUnresolvedSrc!=="undefined" && insUnresolvedSrc) src=insUnresolvedSrc; }catch(_){}
+  var get=function(t){ if(src && src[t] && Array.isArray(src[t].rows)) return src[t].rows; try{ return (insState && insState[t] && insState[t].rows)||[]; }catch(_){ return []; } };
+  var out=[], add=function(t,g){ get(t).forEach(function(r,i){ if(!r) return; var d=qdDate_(r.insDate); if(!d) return;
+      var cnt=qdNum_(r.insCnt), good=String(r.goodCnt==null?"":r.goodCnt).trim()===""?null:qdNum_(r.goodCnt);
+      var bad=(good!=null && cnt>=good)?(cnt-good):0; if(t==="measureS"||t==="measureL") bad+=qdNum_(r.fnBad);
+      out.push({ t:t, g:g, d:d, draw:String(r.draw||"").trim(), cnt:cnt, bad:bad, i:i }); }); };
+  add("incoming","수입"); add("measureS","측정"); add("measureL","측정"); add("shipping","출하");
+  return { rows:out, shared:!!src };
+}
+function qdKpiHtml_(){
+  var list=qdScope_(), c=qdCounts_(list), prev=qdPrevSnap_();
+  var h=QD_KPI.map(function(K){ var v=c[K.k], dv="";
+    if(prev && prev.v && prev.v[K.k]!=null){ var d=v.n-prev.v[K.k]; dv='<span class="qd-dl '+(d>0?"up":(d<0?"dn":""))+'" title="'+qdE_(prev.d)+' 대비">'+(d>0?"▲ "+d:(d<0?"▼ "+(-d):"– 0"))+'</span>'; }
+    return '<button type="button" class="qd-kpi'+(__qd.filter===K.k?" on":"")+'" data-k="'+K.k+'" style="--c:'+K.c+';--bg:'+K.bg+';" title="누르면 아래 표를 이 항목만 보기">'
+      +'<span class="qd-kic"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">'+K.ic+'</svg></span>'
+      +'<span class="qd-kt"><span class="qd-kl">'+K.t+'</span><span class="qd-kn">'+v.n.toLocaleString()+'<small>건</small>'+dv+'</span><span class="qd-ks">수량 '+v.q.toLocaleString()+' · '+K.sub+'</span></span>'
+      +'<span class="qd-kbar"><i style="width:'+(list.length?Math.max(3,Math.round(v.n/list.length*100)):0)+'%"></i></span></button>'; }).join("");
+  return { html:h, list:list, counts:c };
+}
+function qdRenderKpi_(){ var el=document.getElementById("qd-kpi"); if(!el || !qdReady_()) return; var k=qdKpiHtml_(); el.innerHTML=k.html; qdBindKpi_(); return k; }
+function qdBindKpi_(){ document.querySelectorAll("#qd-kpi .qd-kpi").forEach(function(b){ b.onclick=function(){ var k=b.getAttribute("data-k"); __qd.filter=(__qd.filter===k?"all":k); var s=document.getElementById("qd-filter"); if(s) s.value=__qd.filter; qdRenderKpi_(); qdRenderTable_(); }; }); }
+/* 최근 7일 검사 현황 (선 그래프, SVG) */
+function qdLineHtml_(ins){
+  var W=qdWeek_(), days=[], wk=["일","월","화","수","목","금","토"];
+  for(var i=6;i>=0;i--){ var d=new Date(W.today.getFullYear(),W.today.getMonth(),W.today.getDate()-i); days.push({ s:qdYmd_(d), l:(d.getMonth()+1)+"/"+d.getDate()+"("+wk[d.getDay()]+")" }); }
+  var S=[ {k:"수입",c:"#2563EB"}, {k:"측정",c:"#16A34A"}, {k:"출하",c:"#D97706"}, {k:"부적합",c:"#DC2626"} ];
+  var val={}; S.forEach(function(s){ val[s.k]=days.map(function(){ return 0; }); });
+  var idx={}; days.forEach(function(d,i){ idx[d.s]=i; });
+  ins.rows.forEach(function(r){ var i=idx[r.d]; if(i==null) return; val[r.g][i]+=r.cnt; val["부적합"][i]+=r.bad; });
+  var mx=1; S.forEach(function(s){ val[s.k].forEach(function(v){ if(v>mx) mx=v; }); });
+  var step=Math.pow(10,Math.floor(Math.log10(mx))); var top=Math.ceil(mx/step)*step; if(top/step<=2) step=step/2; if(!top) top=1;
+  var w=640,h=230,pl=42,pr=30,pt=14,pb=34, iw=w-pl-pr, ih=h-pt-pb;
+  var x=function(i){ return pl+iw*(i/(days.length-1)); }, y=function(v){ return pt+ih*(1-v/top); };
+  var g=""; for(var t=0;t<=top+1e-9;t+=step){ g+='<line x1="'+pl+'" x2="'+(w-pr)+'" y1="'+y(t)+'" y2="'+y(t)+'" stroke="#E4E7EC"/><text x="'+(pl-8)+'" y="'+(y(t)+4)+'" text-anchor="end" font-size="11" fill="#667085">'+Math.round(t).toLocaleString()+'</text>'; }
+  days.forEach(function(d,i){ g+='<text x="'+x(i)+'" y="'+(h-10)+'" text-anchor="middle" font-size="11" fill="'+(i===6?"#101828":"#667085")+'" font-weight="'+(i===6?"700":"400")+'">'+d.l+'</text>'; });
+  S.forEach(function(s){ var pts=val[s.k].map(function(v,i){ return x(i)+","+y(v); }).join(" ");
+    g+='<polyline points="'+pts+'" fill="none" stroke="'+s.c+'" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>';
+    val[s.k].forEach(function(v,i){ g+='<circle cx="'+x(i)+'" cy="'+y(v)+'" r="3.6" fill="#fff" stroke="'+s.c+'" stroke-width="2"><title>'+days[i].l+' '+s.k+(s.k==="부적합"?" ":" 검사 ")+v.toLocaleString()+'개</title></circle>'; }); });
+  var tot=S.map(function(s){ return val[s.k].reduce(function(a,b){ return a+b; },0); });
+  var lg=S.map(function(s,i){ return '<span class="qd-lg"><i style="background:'+s.c+'"></i>'+s.k+' <b>'+tot[i].toLocaleString()+'</b></span>'; }).join("");
+  return '<div class="qd-legend">'+lg+'</div><svg viewBox="0 0 '+w+' '+h+'" class="qd-svg" role="img" aria-label="최근 7일 검사 수량">'+g+'</svg>'
+    +'<div class="qd-note">검사일보 검사수(개) 합계 · 부적합 = 검사수 − 양품수 (+측정 기능부적합)'+(ins.shared?"":" · ⚠ 공유본을 못 불러와 이 PC 기록만 표시")+'</div>';
+}
+/* 이번 달 검사 비율 (도넛) */
+function qdDonutHtml_(ins){
+  var W=qdWeek_(), ym=W.todayStr.slice(0,7), S=[ {k:"수입",c:"#2563EB"}, {k:"측정",c:"#16A34A"}, {k:"출하",c:"#D97706"} ], v={수입:0,측정:0,출하:0}, bad={수입:0,측정:0,출하:0};
+  ins.rows.forEach(function(r){ if(r.d.slice(0,7)!==ym) return; v[r.g]+=r.cnt; bad[r.g]+=r.bad; });
+  var tot=v.수입+v.측정+v.출하, tb=bad.수입+bad.측정+bad.출하, R=52, C=2*Math.PI*R, off=0, arcs="";
+  S.forEach(function(s){ var f=tot?v[s.k]/tot:0; if(f>0){ arcs+='<circle r="'+R+'" cx="70" cy="70" fill="none" stroke="'+s.c+'" stroke-width="20" stroke-dasharray="'+(f*C)+' '+(C-f*C)+'" stroke-dashoffset="'+(-off*C)+'" transform="rotate(-90 70 70)"><title>'+s.k+' '+v[s.k].toLocaleString()+'개</title></circle>'; off+=f; } });
+  if(!tot) arcs='<circle r="'+R+'" cx="70" cy="70" fill="none" stroke="#E4E7EC" stroke-width="20"/>';
+  var pct=function(a,b){ return b?(a/b*100).toFixed(1)+"%":"–"; };
+  var rows=S.map(function(s){ return '<tr><td><i class="qd-dot" style="background:'+s.c+'"></i>'+s.k+'</td><td class="n">'+v[s.k].toLocaleString()+'</td><td class="p">'+pct(v[s.k],tot)+'</td><td class="b" title="부적합 수 / 부적합률">'+(bad[s.k]?('<span>'+bad[s.k].toLocaleString()+'</span> '+pct(bad[s.k],v[s.k])):'0')+'</td></tr>'; }).join("");
+  return '<div class="qd-donut"><svg viewBox="0 0 140 140" width="150" height="150">'+arcs+'<text x="70" y="64" text-anchor="middle" font-size="11" fill="#667085">'+(W.today.getMonth()+1)+'월 검사</text><text x="70" y="86" text-anchor="middle" font-size="21" font-weight="800" fill="#101828">'+tot.toLocaleString()+'</text></svg>'
+    +'<table class="qd-dt"><thead><tr><th>구분</th><th>검사수</th><th>비율</th><th>부적합</th></tr></thead><tbody>'+rows+'</tbody><tfoot><tr><td>합계</td><td class="n">'+tot.toLocaleString()+'</td><td class="p">100%</td><td class="b">'+(tb?('<span>'+tb.toLocaleString()+'</span> '+pct(tb,tot)):'0')+'</td></tr></tfoot></table></div>';
+}
+/* 중요 알림 */
+function qdAlertItems_(){
+  var items=[]; try{ items=(typeof qmsMorningAlerts_==="function")?qmsMorningAlerts_():[]; }catch(_){}
+  try{ var hc=(typeof __holdLog!=="undefined"&&Array.isArray(__holdLog))?__holdLog.filter(function(h){ return h && h.status!=="해제" && String(h._del||"")!=="1"; }).length:0;
+    if(hc) items.unshift({ icon:"⛔", title:"출하정지(HOLD) 중", count:hc, color:"#C0392B", view:"shipjudge" }); }catch(_){}
+  return items;
+}
+function qdAlertHtml_(){
+  var items=qdAlertItems_(); __qd.alerts=items;
+  if(!items.length) return '<div class="qd-empty">오늘 특이사항 없습니다 ✓</div>';
+  return '<div class="qd-alist">'+items.slice(0,8).map(function(it,i){ var c=it.color||"#475467";
+    return '<button type="button" class="qd-al" data-i="'+i+'"><span class="qd-alc" style="color:'+c+';border-color:'+c+'55;background:'+c+'12;">'+qdE_(typeof it.count==="number"?it.count+"건":(it.count||"확인"))+'</span><span class="qd-alt">'+qdE_(it.title)+'</span><span class="qd-alg">›</span></button>'; }).join("")+'</div>'
+    +(items.length>8?'<div class="qd-note">외 '+(items.length-8)+'건 — 좌하단 버전 배지를 누르면 전체 보기</div>':'');
+}
+/* 최근 검사일보 */
+function qdRecentHtml_(ins){
+  var r=ins.rows.slice().sort(function(a,b){ return a.d<b.d?1:(a.d>b.d?-1:(b.i-a.i)); }).slice(0,7);
+  if(!r.length) return '<div class="qd-empty">검사일보 기록이 없습니다</div>';
+  return '<table class="qd-tb qd-tb-s"><thead><tr><th>검사일</th><th>구분</th><th>도번</th><th>검사수</th><th>판정</th></tr></thead><tbody>'+r.map(function(x){
+    return '<tr><td>'+x.d.slice(5)+'</td><td>'+x.g+'</td><td class="qd-lk" data-draw="'+qdE_(x.draw)+'">'+qdE_(x.draw||"-")+'</td><td>'+x.cnt.toLocaleString()+'</td><td>'+(x.bad?'<span class="qd-bd bad">부적합 '+x.bad+'</span>':'<span class="qd-bd ok">합격</span>')+'</td></tr>'; }).join("")+'</tbody></table>';
+}
+/* 출고검수 진행 현황 표 */
+var QD_ST={ "생산":["#EFF4FF","#1D4ED8"], "수입":["#FFF7E6","#B45309"], "측정":["#FFF7E6","#B45309"], "비젼":["#FFF7E6","#B45309"], "OK":["#FFF7E6","#B45309"], "외관":["#E6F6F8","#0E7490"], "재고":["#EAF7EE","#15803D"] };
+function qdTableRows_(){
+  var list=qdScope_(), f=__qd.filter, q=String(__qd.q||"").trim().toUpperCase();
+  var K=QD_KPI.filter(function(k){ return k.k===f; })[0];
+  if(K) list=list.filter(K.f);
+  if(q) list=list.filter(function(x){ var r=x.r; return [r.orderNo,r.projectNo,r.customer,r.oldDrawingNo,r.partNo,r.partName].some(function(v){ return String(v||"").toUpperCase().indexOf(q)>=0; }); });
+  return list;
+}
+function qdRenderTable_(){
+  var el=document.getElementById("qd-table"); if(!el) return; if(!qdReady_()){ el.innerHTML='<div class="qd-empty">MAIN 데이터를 불러오는 중입니다…</div>'; return; }
+  var list=qdTableRows_(), W=qdWeek_(), MAXR=300;
+  var cnt=document.getElementById("qd-tcnt"); if(cnt) cnt.textContent=list.length.toLocaleString()+"건";
+  if(!list.length){ el.innerHTML='<div class="qd-empty">해당 항목이 없습니다</div>'; return; }
+  var dd=function(due){ var a=new Date(due+"T00:00:00"), n=Math.round((a-W.today)/86400000); return n<0?'<span class="qd-bd bad">D+'+(-n)+'</span>':(n===0?'<span class="qd-bd warn">오늘</span>':'<span class="qd-dday">D-'+n+'</span>'); };
+  var body=list.slice(0,MAXR).map(function(x,i){ var r=x.r, c=QD_ST[x.st]||["#F2F4F7","#344054"];
+    return '<tr'+(x.late?' class="late"':'')+'><td>'+(i+1)+'</td><td>'+qdE_(r.orderNo)+'</td><td>'+qdE_(r.customer)+'</td><td class="qd-lk" data-draw="'+qdE_(r.oldDrawingNo)+'" title="품목이력 보기">'+qdE_(r.oldDrawingNo)+'</td><td class="qd-nm">'+qdE_(r.partName)+'</td><td>'+x.qty.toLocaleString()+'</td>'
+      +'<td><span class="qd-bd" style="background:'+c[0]+';color:'+c[1]+';border-color:'+c[1]+'40;">'+qdE_(x.st)+'</span></td><td>'+(x.ship?'<b style="color:#0E7490;">'+x.shipQty.toLocaleString()+'</b>':'-')+'</td><td>'+qdE_(x.due)+'</td><td>'+dd(x.due)+'</td></tr>'; }).join("");
+  el.innerHTML='<div class="qd-twrap"><table class="qd-tb"><thead><tr><th>No</th><th>ORDER NO.</th><th>고객사</th><th>도번</th><th>품명</th><th>수량</th><th>제품상태</th><th>출하검사대기</th><th>최종납기</th><th>D-day</th></tr></thead><tbody>'+body+'</tbody></table></div>'
+    +(list.length>MAXR?'<div class="qd-note">처음 '+MAXR+'건만 표시 · 전체는 [엑셀]로 받으세요</div>':'');
+}
+function qdExcel_(){
+  if(typeof XLSX==="undefined"){ alert("엑셀 라이브러리 로딩 중입니다. 잠시 후 다시 눌러 주세요."); return; }
+  var list=qdTableRows_(), aoa=[["No","ORDER NO.","PROJECT NO.","고객사","도번","품명","수량","제품상태","출하검사대기","최종납기","지연"]];
+  list.forEach(function(x,i){ var r=x.r; aoa.push([i+1,r.orderNo||"",r.projectNo||"",r.customer||"",r.oldDrawingNo||"",r.partName||"",x.qty,x.st,x.shipQty||0,x.due,x.late?"지연":""]); });
+  var wb=XLSX.utils.book_new(); XLSX.utils.book_append_sheet(wb, XLSX.utils.aoa_to_sheet(aoa), "출고검수 진행");
+  XLSX.writeFile(wb, "품질대시보드_출고검수진행_"+qdWeek_().todayStr+".xlsx");
+}
+var QD_QUICK=[ {t:"검사 일보",s:"수입·측정·출하 입력",v:"insrep",ic:'<path d="M9 4h6v3H9zM6 6h2v15h8V6h2"/><path d="M9 12h6M9 16h4"/>'},
+  {t:"검사 요청서",s:"우선순위",v:"qcprio",ic:'<path d="M5 4h14v16H5z"/><path d="M9 9h6M9 13h6M9 17h3"/>'},
+  {t:"고객부적합",s:"클레임 접수·조치",v:"nc",ic:'<path d="M12 3l9 16H3z"/><path d="M12 10v4M12 17v.5"/>'},
+  {t:"NCR",s:"부적합 보고서",qt:"ncr",ic:'<path d="M6 3h9l4 4v14H6z"/><path d="M14 3v5h5M9 13h7M9 17h5"/>'},
+  {t:"변경점",s:"4M 변경 관리",qt:"chg",ic:'<path d="M4 7h13l-3-3M20 17H7l3 3"/>'},
+  {t:"LOT 출하판정",s:"출하정지(HOLD)",v:"shipjudge",ic:'<path d="M12 3v18M5 7h14M7 7l-3 7h6zM17 7l-3 7h6z"/>'} ];
+function qdGo_(it){ try{ if(typeof qmsGoto_==="function"){ qmsGoto_(it); return; } var n=document.querySelector('.nav-item[data-view="'+it.view+'"]'); if(n) n.click(); }catch(_){} }
+function qdRender_(){
+  var host=document.getElementById("qd-root"); if(!host) return;
+  var W=qdWeek_(), wk=["일","월","화","수","목","금","토"];
+  if(!host.__built){ host.__built=true;
+    host.innerHTML=
+      '<div class="qd-head"><div><div class="qd-crumb">MAIN <span>›</span> 품질 대시보드</div><div class="qd-title">품질 대시보드</div><div class="qd-sub" id="qd-sub"></div></div>'
+      +'<div class="qd-hact"><button type="button" class="qd-btn" id="qd-refresh"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M20 11a8 8 0 1 0-2.3 5.7M20 5v6h-6"/></svg>새로고침</button></div></div>'
+      +'<div class="qd-kpis" id="qd-kpi"></div>'
+      +'<div class="qd-grid">'
+      +  '<section class="qd-card qd-c-line"><div class="qd-ch"><h3>최근 7일 검사 현황</h3><span class="qd-chs">검사수(개)</span></div><div id="qd-line"></div></section>'
+      +  '<section class="qd-card qd-c-donut"><div class="qd-ch"><h3>이번 달 검사 비율</h3><span class="qd-chs">구분별 검사수 · 부적합</span></div><div id="qd-donut"></div></section>'
+      +  '<section class="qd-card qd-c-alert"><div class="qd-ch"><h3>중요 알림</h3><span class="qd-chs">누르면 해당 화면으로</span></div><div id="qd-alert"></div></section>'
+      +  '<section class="qd-card qd-c-table"><div class="qd-ch qd-ch-tool"><h3>출고검수 진행 현황 <span class="qd-cnt" id="qd-tcnt"></span></h3>'
+      +     '<div class="qd-tool"><select id="qd-filter"><option value="all">전체</option>'+QD_KPI.map(function(k){ return '<option value="'+k.k+'">'+k.t+'</option>'; }).join("")+'</select>'
+      +     '<span class="qd-search"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg><input id="qd-q" type="text" placeholder="ORDER NO · 도번 · 품명 · 고객사"></span>'
+      +     '<button type="button" class="qd-btn" id="qd-xls"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>엑셀</button></div></div>'
+      +     '<div id="qd-table"></div></section>'
+      +  '<div class="qd-c-side"><section class="qd-card"><div class="qd-ch"><h3>최근 검사일보</h3><button type="button" class="qd-more" data-v="insrep">전체보기 ›</button></div><div id="qd-recent"></div></section>'
+      +  '<section class="qd-card"><div class="qd-ch"><h3>빠른 메뉴</h3></div><div class="qd-quick">'+QD_QUICK.map(function(q,i){ return '<button type="button" class="qd-qk" data-i="'+i+'"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">'+q.ic+'</svg><span><b>'+q.t+'</b><small>'+q.s+'</small></span></button>'; }).join("")+'</div></section></div>'
+      +'</div>';
+    var root=host;
+    root.addEventListener("click", function(e){
+      var t=e.target.closest?e.target:null; if(!t) return;
+      var al=t.closest(".qd-al"); if(al){ var it=(__qd.alerts||[])[Number(al.getAttribute("data-i"))]; if(it) qdGo_(it); return; }
+      var qk=t.closest(".qd-qk"); if(qk){ var q=QD_QUICK[Number(qk.getAttribute("data-i"))]; qdGo_(q.qt?{qtab:q.qt}:{view:q.v}); return; }
+      var mo=t.closest(".qd-more"); if(mo){ qdGo_({view:mo.getAttribute("data-v")}); return; }
+      var lk=t.closest(".qd-lk"); if(lk){ var dr=lk.getAttribute("data-draw"); if(dr && typeof ihOpen_==="function") ihOpen_(dr); return; }
+    });
+    document.getElementById("qd-refresh").onclick=function(){ try{ insUnresolvedSrc=null; }catch(_){} __qd.snapTried=false; qdRender_(); };
+    document.getElementById("qd-filter").onchange=function(){ __qd.filter=this.value; qdRenderKpi_(); qdRenderTable_(); };
+    var qi=document.getElementById("qd-q"), tm=null; qi.oninput=function(){ clearTimeout(tm); tm=setTimeout(function(){ __qd.q=qi.value; qdRenderTable_(); },250); };
+    qi.onkeydown=function(e){ if(e.key==="Enter"){ clearTimeout(tm); __qd.q=qi.value; qdRenderTable_(); } };
+    document.getElementById("qd-xls").onclick=qdExcel_;
+  }
+  var sub=document.getElementById("qd-sub"); if(sub) sub.textContent="기준 물량: "+(W.sun.getMonth()+1)+"/"+W.sun.getDate()+"("+wk[W.sun.getDay()]+")까지 납기 · 지연 포함 · 완료·출고 제외 · "+new Date().toTimeString().slice(0,5)+" 갱신";
+  // 1) 주문 기반 (MAIN 데이터)
+  if(qdReady_()){ var k=qdRenderKpi_(); if(k) qdSnapSync_(k.counts); qdRenderTable_(); }
+  else { var ke=document.getElementById("qd-kpi"); if(ke) ke.innerHTML='<div class="qd-empty" style="grid-column:1/-1;">MAIN 데이터를 불러오는 중입니다…</div>'; qdRenderTable_();
+    if(__qd.retry<20){ __qd.retry++; setTimeout(function(){ var v=document.getElementById("view-qdash"); if(v && v.classList.contains("active")) qdRender_(); }, 2000); } }
+  // 2) 검사일보 기반 — 캐시 먼저 그리고, 공유본을 받은 뒤 다시 그림
+  var drawIns=function(){ var ins=qdInsRows_(); var a=document.getElementById("qd-line"); if(a) a.innerHTML=qdLineHtml_(ins); var b=document.getElementById("qd-donut"); if(b) b.innerHTML=qdDonutHtml_(ins); var c=document.getElementById("qd-recent"); if(c) c.innerHTML=qdRecentHtml_(ins); };
+  drawIns();
+  if(typeof qmsLoadUnresolvedShared_==="function") qmsLoadUnresolvedShared_(function(){ drawIns(); var al=document.getElementById("qd-alert"); if(al) al.innerHTML=qdAlertHtml_(); });
+  // 3) 알림 — 관련 데이터 불러오기(이미 불러왔으면 즉시)
+  var al=document.getElementById("qd-alert"); if(al) al.innerHTML=qdAlertHtml_();
+  try{ if(typeof holdEnsure_==="function") holdEnsure_(); }catch(_){}
+  try{ if(typeof chgEnsure_==="function") chgEnsure_(); }catch(_){}
+  try{ if(typeof ncrEnsure_==="function") ncrEnsure_(function(){ var a2=document.getElementById("qd-alert"); if(a2) a2.innerHTML=qdAlertHtml_(); }); }catch(_){}
+  setTimeout(function(){ var a3=document.getElementById("qd-alert"); if(a3) a3.innerHTML=qdAlertHtml_(); }, 3000);
 }
 function qmsMorningBindBadge_(){ var b=document.getElementById("app-version"); if(b && !b.__bound){ b.__bound=true; b.addEventListener("click",function(){ qmsShowMorning_(true); }); } }
 function qmsLoadUnresolvedShared_(cb){
